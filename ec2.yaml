@@ -1,0 +1,18 @@
+---
+- name: ec2 instance launch
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+   - ec2:
+       key_name: ansible-practice
+       instance_type: t2.micro
+       image: ami-0c64dd618a49aeee8
+       wait: yes
+       group: default
+       count: 1
+       vpc_subnet_id: subnet-5349f81f
+       assign_public_ip: yes
+       region: us-east-2
+       
+  
